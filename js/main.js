@@ -1,3 +1,4 @@
 import generate from './generator'
-
-generate()
+import Library from  './libraries'
+const lib = new Library()
+console.log(generate(lib.syllables))
