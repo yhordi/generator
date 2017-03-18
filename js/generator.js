@@ -1,5 +1,9 @@
 const generate = (library) => {
   console.log("library", library)
-  return library.first[Math.floor(Math.random() *10)] + library.second[Math.floor(Math.random() *10)] + library.third[Math.floor(Math.random() *10)]
+  return library.first[d10()] + library.second[d10()] + library.third[d10()]
 };
+const die = (sides) => Math.floor(Math.random() * sides)
+
+const d10 = () => die(10)
+
 export default generate
