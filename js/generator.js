@@ -1,5 +1,4 @@
 const generate = (library) => {
-  // console.log("library", library)
   return library.first[d10()] + library.second[d10()] + library.third[d10()]
 };
 const die = (sides) => Math.floor(Math.random() * sides)

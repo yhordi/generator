@@ -1,0 +1,10 @@
+* {
+  font-family: 'Slabo 27px', serif;
+}
+.center {
+  text-align: center;
+}
+#top {
+  margin-top: 0;
+  background-color: #d3f1d3;
+}
