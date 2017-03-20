@@ -80,7 +80,7 @@ Object.defineProperty(exports, "__esModule", {
 var _dice = __webpack_require__(2);
 
 var generate = function generate(library) {
-  return library.first[(0, _dice.d12)()] + library.second[(0, _dice.d12)()] + library.third[(0, _dice.d12)()];
+  return library.first[(0, _dice.d20)()] + library.second[(0, _dice.d20)()] + library.third[(0, _dice.d20)()];
 };
 
 exports.default = generate;
@@ -96,9 +96,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var syllables = {
-  first: ['', 'Be', 'Jo', 'Am', 'Da', 'Wo', 'El', 'Al', 'Pa', 'Ra', 'Xa', 'Re'],
-  second: ['re', 'rn', 'bi', 'shi', 'ru', 'ha', 'da', 'he', 'la', 'bu', 'jo', ''],
-  third: ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', 'han', 'dyn']
+  first: ['To', 'Be', 'Jo', 'Am', 'Da', 'Wo', 'El', 'Al', 'Pa', 'Ra', 'Xa', 'Re', 'Wa', 'Uk', 'Og', 'Po', 'Di', 'Fi', 'Iz', 'Zo'],
+  second: ['re', 'orn', 'bi', 'shi', 'ru', 'ha', 'da', 'he', 'la', 'x', 'jo', '', 'han', 'ga', 'no', 'vi', 'le', 'qi', 'ex', 's'],
+  third: ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', '', 'dyn', 'wyn', 'ia', 'sha', 'ko', 'ka', 'ki', 'ta', 'nil']
 };
 
 exports.syllables = syllables;
