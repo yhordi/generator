@@ -1,3 +1,8 @@
 import generate from './generator'
 import { syllables } from  './libraries'
-console.log(generate(syllables))
+
+
+let $button = $('#generate')
+$button.on("click", function(){
+  $('#name-target').text(generate(syllables))
+})
