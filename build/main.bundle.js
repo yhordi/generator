@@ -76,14 +76,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.generateEpicName = exports.generateFirstName = undefined;
 
 var _dice = __webpack_require__(2);
 
-var generate = function generate(library) {
+var generateFirstName = function generateFirstName(library) {
   return library.first[(0, _dice.d20)()] + library.second[(0, _dice.d20)()] + library.third[(0, _dice.d20)()];
 };
+var generateEpicName = function generateEpicName(library) {
+  return library.first[(0, _dice.d10)()] + library.second[(0, _dice.d10)()];
+};
 
-exports.default = generate;
+exports.generateFirstName = generateFirstName;
+exports.generateEpicName = generateEpicName;
 
 /***/ }),
 /* 1 */
@@ -101,7 +106,13 @@ var syllables = {
   third: ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', '', 'dyn', 'wyn', 'ia', 'sha', 'ko', 'ka', 'ki', 'ta', 'nil']
 };
 
+var epicName = {
+  first: ['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain'],
+  second: ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'spawn']
+};
+
 exports.syllables = syllables;
+exports.epicName = epicName;
 
 /***/ }),
 /* 2 */
@@ -153,15 +164,15 @@ exports.d100 = d100;
 
 var _generator = __webpack_require__(0);
 
-var _generator2 = _interopRequireDefault(_generator);
-
 var _libraries = __webpack_require__(1);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var $button = $('#generate');
-$button.on("click", function () {
-  $('#name-target').text((0, _generator2.default)(_libraries.syllables));
+var $firstName = $('#first-name');
+$firstName.on("click", function () {
+  $('#first-name-target').text((0, _generator.generateFirstName)(_libraries.syllables));
+});
+var $epic = $('#epic-name');
+$epic.on("click", function () {
+  $('#epic-name-target').text((0, _generator.generateEpicName)(_libraries.epicName));
 });
 
 /***/ })
