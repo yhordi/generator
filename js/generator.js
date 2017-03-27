@@ -1,9 +1,18 @@
-import { die, d4, d6, d10, d12, d20, d100 } from './dice'
-const generateFirstName = (library) => {
-  return library.first[d20()] + library.second[d20()] + library.third[d20()]
-};
-const generateEpicName = (library) => {
-  return library.first[d10()] + library.second[d10()]
+import { die } from './dice'
+import { libraries } from  './libraries'
+
+const generateName = (libraryName) => {
+  const library = libraries[libraryName]
+  return getNameParts(library)
 };
 
-export { generateFirstName, generateEpicName }
+const getNameParts = (library) => {
+  var name = ''
+  for (let section of library) {
+    let roll = die(section.length)
+    name += section[roll]
+  }
+  return name
+}
+
+export { generateName }

@@ -1,11 +1,10 @@
-import { generateFirstName, generateEpicName } from './generator'
-import { syllables, epicName } from  './libraries'
+import { generateName } from './generator'
 
 let $firstName = $('#first-name')
 $firstName.on("click", function(){
-  $('#first-name-target').text(generateFirstName(syllables))
+  $('#first-name-target').text(generateName('name'))
 })
 let $epic = $('#epic-name')
 $epic.on("click", function(){
-  $('#epic-name-target').text(generateEpicName(epicName))
+  $('#epic-name-target').text(generateName('epicName'))
 })
