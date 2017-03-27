@@ -76,19 +76,49 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.generateEpicName = exports.generateFirstName = undefined;
+exports.generateName = undefined;
 
-var _dice = __webpack_require__(2);
+var _dice = __webpack_require__(1);
 
-var generateFirstName = function generateFirstName(library) {
-  return library.first[(0, _dice.d20)()] + library.second[(0, _dice.d20)()] + library.third[(0, _dice.d20)()];
+var _libraries = __webpack_require__(2);
+
+var generateName = function generateName(libraryName) {
+  var library = _libraries.libraries[libraryName];
+  return getNameParts(library);
 };
-var generateEpicName = function generateEpicName(library) {
-  return library.first[(0, _dice.d10)()] + library.second[(0, _dice.d10)()];
+
+var getNameParts = function getNameParts(library) {
+  var name = '';
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = library[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var section = _step.value;
+
+      var roll = (0, _dice.die)(section.length);
+      name += section[roll];
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  return name;
 };
 
-exports.generateFirstName = generateFirstName;
-exports.generateEpicName = generateEpicName;
+exports.generateName = generateName;
 
 /***/ }),
 /* 1 */
@@ -100,19 +130,11 @@ exports.generateEpicName = generateEpicName;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var syllables = {
-  first: ['To', 'Be', 'Jo', 'Am', 'Da', 'Wo', 'El', 'Al', 'Pa', 'Ra', 'Xa', 'Re', 'Wa', 'Uk', 'Og', 'Po', 'Di', 'Fi', 'Iz', 'Zo'],
-  second: ['re', 'orn', 'bi', 'shi', 'ru', 'ha', 'da', 'he', 'la', 'x', 'jo', '', 'han', 'ga', 'no', 'vi', 'le', 'qi', 'ex', 's'],
-  third: ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', '', 'dyn', 'wyn', 'ia', 'sha', 'ko', 'ka', 'ki', 'ta', 'nil']
+var die = function die(libraryLength) {
+  return Math.floor(Math.random() * libraryLength);
 };
 
-var epicName = {
-  first: ['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain'],
-  second: ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'spawn']
-};
-
-exports.syllables = syllables;
-exports.epicName = epicName;
+exports.die = die;
 
 /***/ }),
 /* 2 */
@@ -124,36 +146,11 @@ exports.epicName = epicName;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var die = function die(sides) {
-  return Math.floor(Math.random() * sides);
+var libraries = {
+  name: [['To', 'Be', 'Jo', 'Am', 'Da', 'Wo', 'El', 'Al', 'Pa', 'Ra', 'Xa', 'Re', 'Wa', 'Uk', 'Og', 'Po', 'Di', 'Fi', 'Iz', 'Zo'], ['re', 'orn', 'bi', 'shi', 'ru', 'ha', 'da', 'he', 'la', 'x', 'jo', '', 'han', 'ga', 'no', 'vi', 'le', 'qi', 'ex', 's'], ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', '', 'dyn', 'wyn', 'ia', 'sha', 'ko', 'ka', 'ki', 'ta', 'nil']],
+  epicName: [['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain'], ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'spawn']]
 };
-
-var d4 = function d4() {
-  return die(4);
-};
-var d6 = function d6() {
-  return die(6);
-};
-var d10 = function d10() {
-  return die(10);
-};
-var d12 = function d12() {
-  return die(12);
-};
-var d20 = function d20() {
-  return die(20);
-};
-var d100 = function d100() {
-  return die(100);
-};
-
-exports.die = die;
-exports.d4 = d4;
-exports.d6 = d6;
-exports.d10 = d10;
-exports.d12 = d12;
-exports.d20 = d20;
-exports.d100 = d100;
+exports.libraries = libraries;
 
 /***/ }),
 /* 3 */
@@ -164,15 +161,13 @@ exports.d100 = d100;
 
 var _generator = __webpack_require__(0);
 
-var _libraries = __webpack_require__(1);
-
 var $firstName = $('#first-name');
 $firstName.on("click", function () {
-  $('#first-name-target').text((0, _generator.generateFirstName)(_libraries.syllables));
+  $('#first-name-target').text((0, _generator.generateName)('name'));
 });
 var $epic = $('#epic-name');
 $epic.on("click", function () {
-  $('#epic-name-target').text((0, _generator.generateEpicName)(_libraries.epicName));
+  $('#epic-name-target').text((0, _generator.generateName)('epicName'));
 });
 
 /***/ })
