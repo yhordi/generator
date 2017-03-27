@@ -1,8 +1,18 @@
-const generate = (library) => {
-  return library.first[d10()] + library.second[d10()] + library.third[d10()]
+import { die } from './dice'
+import { libraries } from  './libraries'
+
+const generateName = (libraryName) => {
+  const library = libraries[libraryName]
+  return getNameParts(library)
 };
-const die = (sides) => Math.floor(Math.random() * sides)
 
-const d10 = () => die(10)
+const getNameParts = (library) => {
+  var name = ''
+  for (let section of library) {
+    let roll = die(section.length)
+    name += section[roll]
+  }
+  return name
+}
 
-export default generate
+export { generateName }
