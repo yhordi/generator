@@ -5,11 +5,11 @@ const libraries = {
     ['lan', 'tar', 'rf', 'shi', 'ji', 'ro', 'en', 'an', 'do', 'ti', '', 'dyn', 'wyn', 'ia', 'sha', 'ko', 'ka', 'ki', 'ta', 'nil']
   ],
   epicName: [
-    ['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain'],
-    ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'spawn']
+    ['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain', 'Rock', 'Sea', 'Snow', 'Cave'],
+    ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'born', 'hawk', 'wolf', 'tread']
   ],
   nickname: [
-    ['Wicked', 'Observant', 'Bold', 'Brave', 'Mighty', 'Alacritous', 'Buffoon', 'Wise', 'Unwise', 'All-Seeing', 'Mad', 'Unruly', 'Swift']
+    ['Wicked', 'Observant', 'Bold', 'Brave', 'Mighty', 'Alacritous', 'Buffoon', 'Wise', 'Unwise', 'All-Seeing', 'Mad', 'Unruly', 'Swift', 'Wretched', 'Glutton', 'Hard', 'Dubious']
   ]
 }
 export { libraries }
