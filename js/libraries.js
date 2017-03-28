@@ -7,6 +7,9 @@ const libraries = {
   epicName: [
     ['Storm', 'Flame', 'Ice', 'Wind', 'Wood', 'Shadow', 'Night', 'Day', 'Light', 'Mountain'],
     ['heart', 'hand', 'bringer', 'breaker', 'wrend', 'eye', 'crest', 'fist', 'child', 'spawn']
+  ],
+  nickname: [
+    ['Wicked', 'Observant', 'Bold', 'Brave', 'Mighty', 'Alacritous', 'Buffoon', 'Wise', 'Unwise', 'All-Seeing', 'Mad', 'Unruly', 'Swift']
   ]
 }
 export { libraries }
