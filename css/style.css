@@ -4,6 +4,28 @@
 .center {
   text-align: center;
 }
+
+.sidebar{
+  background-color: #84A5B2;
+  position: absolute;
+  left: 0;
+  top: 35px;
+  height: 100%;
+}
+.menu {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+}*/
+
 #top {
   margin-top: 0;
   background-color: #d3f1d3;
