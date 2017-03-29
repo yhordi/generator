@@ -8,3 +8,7 @@ let $epic = $('#epic-name')
 $epic.on("click", function(){
   $('#epic-name-target').text(generateName('epicName'))
 })
+let $nick = $('#nickname')
+$nick.on("click", function(){
+  $('#nickname-target').text('The ' +generateName('nickname'))
+})
