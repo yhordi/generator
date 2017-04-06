@@ -5,17 +5,27 @@
   text-align: center;
 }
 
+.left-zero{
+  left: 0;
+}
+
+.offscreen{
+  left: -10%;
+}
 .sidebar{
   background-color: #84A5B2;
   position: absolute;
-  left: 0;
   top: 35px;
   height: 100%;
 }
 .menu {
+  float: left;
   list-style-type: none;
   padding-left: 10px;
   padding-right: 10px;
+}
+.bars-icon{
+  float: right;
 }
 
 /*.sidebar {
