@@ -10,21 +10,23 @@
 }
 
 .offscreen{
-  left: -85px;
+  left: -89px;
 }
 .sidebar{
-  background-color: #84A5B2;
   position: absolute;
   top: 35px;
   height: 100%;
 }
 .menu {
+  margin-top: 0;
   float: left;
   list-style-type: none;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
+  background-color: #84A5B2;
+  height: 100%;
 }
 .bars-icon{
+  background-color: #84A5B2;
   float: right;
   padding: .3em;
 }
