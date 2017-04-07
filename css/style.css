@@ -1,21 +1,21 @@
 * {
   font-family: 'Slabo 27px', serif;
+  font-size: 1.3em;
+
 }
 .center {
   text-align: center;
 }
 
-.left-zero{
-  left: 0;
-}
-
 .offscreen{
-  left: -89px;
+  left: -10em;
+  transition: left 2s
 }
 .sidebar{
   position: absolute;
-  top: 35px;
+  top: 3.5em;
   height: 100%;
+
 }
 .menu {
   margin-top: 0;
@@ -31,15 +31,8 @@
   padding: .3em;
 }
 
-/*.sidebar {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0;
-}*/
-
 #top {
   margin-top: 0;
   background-color: #d3f1d3;
+  font-size: 4em;
 }
