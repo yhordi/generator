@@ -26,6 +26,9 @@
   background-color: #84A5B2;
   height: 100%;
 }
+.pressed {
+  background-color: #76868c;
+}
 #tab{
   background-color: #84A5B2;
   float: right;
