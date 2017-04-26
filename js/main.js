@@ -29,7 +29,6 @@ $('body').on('click', function(e){
   }
 });
 
-
 let toggleKey = ($this) => {
   if($this.attr('data-toggle') == 'true') {
     $this.removeAttr('data-toggle')
@@ -50,9 +49,7 @@ let getKeys = () => {
 }
 
 let sidebarClick = () => {
-  if($('.offscreen').length != 0) {
-
-  } else {
+  if($('.offscreen').length == 0) {
     $('.content').unbind()
   }
 };
