@@ -4,24 +4,19 @@ let $firstName = $('#first-name');
 let $epic = $('#epic-name');
 let $nick = $('#nickname');
 let $tab = $('#tab');
+let keys = [];
 $('.menu-item').on('click', function(e){
   e.preventDefault();
-  this.dataset.key
-  debugger
+  $(this).parent().toggleClass('pressed');
+  toggleKey($(this))
 });
-// $firstName.on("click", function(){
-//   $('#first-name-target').text(generateName('name'))
-// });
-// $epic.on("click", function(){
-//   $('#epic-name-target').text(generateName('epicName'))
-// });
-// $nick.on("click", function(){
-//   $('#nickname-target').text('The ' + generateName('nickname'))
-// });
 
-$('#generate').on('click', function(e){
+$('#generate').on('click', (e) => {
   e.preventDefault()
-  console.log(e)
+  getKeys().forEach((key)=>{
+    console.log(key)
+    $('#'+ key +'-name-target').html(generateName(key))
+  })
 })
 
 $tab.on("click", function(){
@@ -34,8 +29,25 @@ $('body').on('click', function(e){
   }
 });
 
-let nameOptions = {}
 
+let toggleKey = ($this) => {
+  if($this.attr('data-toggle') == 'true') {
+    $this.removeAttr('data-toggle')
+  } else {
+    $this.attr('data-toggle', 'true')
+  }
+}
+
+let getKeys = () => {
+  let keys = []
+  let $links = $('.menu li a')
+  $.each($links, (index, link) => {
+    if($(link).attr('data-toggle') == 'true'){
+      keys.push(link.dataset["key"])
+    }
+  });
+  return keys;
+}
 
 let sidebarClick = () => {
   if($('.offscreen').length != 0) {
