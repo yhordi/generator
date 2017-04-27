@@ -10,13 +10,17 @@ $('.menu-item').on('click', function(e){
   $(this).parent().toggleClass('pressed');
   toggleKey($(this))
 });
+// $('#first').click()
 
-$('#generate').on('click', (e) => {
-  e.preventDefault()
-  getKeys().forEach((key)=> {
-    $('#'+ key +'-name-target').html(generateName(key))
+let bindGenerate = () => {
+  $('#generate').on('click', (e) => {
+    e.preventDefault()
+    getKeys().forEach((key)=> {
+      $('#'+ key +'-name-target').html(generateName(key))
+    })
   })
-})
+}
+bindGenerate()
 
 $tab.on("click", function(){
   toggleSidebar()
@@ -49,7 +53,10 @@ let getKeys = () => {
 
 let sidebarClick = () => {
   if($('.offscreen').length == 0) {
+    console.log('something')
     $('.content').unbind()
+  } else {
+    $('#generate').unbind()
   }
 };
 

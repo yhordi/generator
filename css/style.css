@@ -31,7 +31,7 @@ li {
 .sidebar{
   transition: left .2s;
   position: absolute;
-  top: 5.3%;
+  /*top: 5.3%;*/
   height: 100%;
   left: 0;
 }
@@ -64,6 +64,6 @@ li {
   and (max-device-width: 1920px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .sidebar {
-      top: 9.5%;
+      /*top: 9.5%;*/
     }
 }
