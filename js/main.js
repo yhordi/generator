@@ -13,8 +13,7 @@ $('.menu-item').on('click', function(e){
 
 $('#generate').on('click', (e) => {
   e.preventDefault()
-  getKeys().forEach((key)=>{
-    console.log(key)
+  getKeys().forEach((key)=> {
     $('#'+ key +'-name-target').html(generateName(key))
   })
 })
