@@ -7,9 +7,19 @@ let $tab = $('#tab');
 let keys = [];
 $('.menu-item').on('click', function(e){
   e.preventDefault();
-  $(this).parent().toggleClass('pressed');
+  let $listItem = $(this).parent()
+  $listItem.toggleClass('pressed');
   toggleKey($(this))
+  renderTrash($listItem)
 });
+
+let renderTrash = (listItem) => {
+  if(listItem.attr('class') == "pressed") {
+    listItem.append('<span class="fa fa-trash"></span>')
+  } else {
+    listItem.children('span').remove()
+  }
+};
 
 let bindGenerate = () => {
   $('#generate').on('click', (e) => {
@@ -51,7 +61,6 @@ let getKeys = () => {
 
 let sidebarClick = () => {
   if($('.offscreen').length == 0) {
-    console.log('something')
     $('.content').unbind()
   } else {
     // $('#generate').unbind()
@@ -72,7 +81,6 @@ let toggleIcon = () => {
   $('#tab').toggleClass('fa-close')
   $('#tab').toggleClass('fa-bars')
 }
-
 
 bindGenerate()
 $('#first').click()
