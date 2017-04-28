@@ -65,7 +65,14 @@ let hideSidebar = () => {
 let toggleSidebar = () => {
   sidebarClick()
   $('.sidebar').toggleClass('offscreen')
+  toggleIcon()
 };
+
+let toggleIcon = () => {
+  $('#tab').toggleClass('fa-close')
+  $('#tab').toggleClass('fa-bars')
+}
+
 
 bindGenerate()
 $('#first').click()
