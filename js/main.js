@@ -10,7 +10,6 @@ $('.menu-item').on('click', function(e){
   $(this).parent().toggleClass('pressed');
   toggleKey($(this))
 });
-// $('#first').click()
 
 let bindGenerate = () => {
   $('#generate').on('click', (e) => {
@@ -20,7 +19,6 @@ let bindGenerate = () => {
     })
   })
 }
-bindGenerate()
 
 $tab.on("click", function(){
   toggleSidebar()
@@ -56,7 +54,7 @@ let sidebarClick = () => {
     console.log('something')
     $('.content').unbind()
   } else {
-    $('#generate').unbind()
+    // $('#generate').unbind()
   }
 };
 
@@ -68,3 +66,6 @@ let toggleSidebar = () => {
   sidebarClick()
   $('.sidebar').toggleClass('offscreen')
 };
+
+bindGenerate()
+$('#first').click()
