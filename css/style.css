@@ -53,6 +53,9 @@ li {
   text-shadow: 0px 0px 16px rgba(255, 255, 255, 1);
   color: white;
 }
+#name-container{
+  margin-top: 40%;
+}
 #tab{
   background-color: #84A5B2;
   float: right;
