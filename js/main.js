@@ -6,7 +6,7 @@ let $nick = $('#nickname');
 let $tab = $('#tab');
 let keys = [];
 
-$('.menu-item').on('click', function(e){
+$('.menu-item').on('click', function(e) {
   e.preventDefault();
   let $listItem = $(this).parent()
   $listItem.toggleClass('pressed');
@@ -32,6 +32,7 @@ let checkContent = () => {
 let bindGenerate = () => {
   $('#generate').on('click', (e) => {
     e.preventDefault();
+    console.log(getKeys())
     getKeys().forEach((key)=> {
       $('#'+ key +'-name-target').html(generateName(key))
     });
@@ -58,7 +59,7 @@ let toggleKey = ($this) => {
 
 let getKeys = () => {
   let keys = []
-  let $links = $('.menu li a')
+  let $links = $('.menu .item-container a')
   $.each($links, (index, link) => {
     if($(link).attr('data-toggle') == 'true'){
       keys.push(link.dataset["key"]);
