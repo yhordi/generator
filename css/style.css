@@ -43,8 +43,12 @@ button{
 .menu-item{
   width: 100%;
 }
+.msides{
+  margin-left: .5em;
+  margin-right: .5em;
+}
 .offscreen{
-  left: -11.5em !important;
+  left: -13em !important;
   transition: left .2s;
 }
 .pressed {
