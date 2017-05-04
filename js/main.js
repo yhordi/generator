@@ -8,10 +8,8 @@ let keys = [];
 
 $('.menu-item').on('click', function(e) {
   e.preventDefault();
-  let $listItem = $(this).parent()
-  $listItem.toggleClass('pressed');
+  $(this).toggleClass('pressed');
   toggleKey($(this))
-  checkContent()
 });
 
 let bindGenerate = () => {
@@ -40,16 +38,6 @@ let checkName = (key) => {
   } else {
     removeTrash($target)
   }
-}
-
-let checkContent = () => {
-  let $targets = $('.content span')
-  $.each($targets, (index, target) =>{
-    let link = $("a[data-key='" + target.dataset.key + "']")
-    if(target.textContent.length > 0) {
-      // link.siblings().toggleClass('hidden')
-    }
-  });
 }
 
 $tab.on("click", function(){
