@@ -12,30 +12,43 @@ $('.menu-item').on('click', function(e) {
   $listItem.toggleClass('pressed');
   toggleKey($(this))
   checkContent()
-  toggleTrash($listItem)
 });
 
-let toggleTrash = (listItem) => {
-  listItem.children('span').toggleClass('hidden')
+let bindGenerate = () => {
+  $('#generate').on('click', (e) => {
+    e.preventDefault();
+    getKeys('.menu .item-container a').forEach((key) => {
+      $('#'+ key +'-name-target').html(generateName(key));
+      $('#'+ key +'-name-target').attr('data-toggle', 'true');
+      checkName(key);
+    });
+  });
+}
+
+let addTrash = (listItem) => {
+  listItem.siblings('span').removeClass('hidden')
 };
+
+let removeTrash = (listItem) => {
+  listItem.siblings('span').addClass('hidden')
+};
+
+let checkName = (key) => {
+  if($('#'+ key +'-name-target')[0].textContent.length > 0) {
+    let $target = $('.sidebar #' + key)
+    addTrash($target)
+  } else {
+    removeTrash($target)
+  }
+}
 
 let checkContent = () => {
   let $targets = $('.content span')
   $.each($targets, (index, target) =>{
     let link = $("a[data-key='" + target.dataset.key + "']")
     if(target.textContent.length > 0) {
-      link.siblings().toggleClass('hidden')
+      // link.siblings().toggleClass('hidden')
     }
-  });
-}
-
-let bindGenerate = () => {
-  $('#generate').on('click', (e) => {
-    e.preventDefault();
-    console.log(getKeys())
-    getKeys().forEach((key)=> {
-      $('#'+ key +'-name-target').html(generateName(key))
-    });
   });
 }
 
@@ -57,9 +70,9 @@ let toggleKey = ($this) => {
   }
 }
 
-let getKeys = () => {
+let getKeys = (parent) => {
   let keys = []
-  let $links = $('.menu .item-container a')
+  let $links = $(parent)
   $.each($links, (index, link) => {
     if($(link).attr('data-toggle') == 'true'){
       keys.push(link.dataset["key"]);
@@ -76,7 +89,7 @@ let sidebarClick = () => {
   }
 };
 
-let hideSidebar = () => {
+const hideSidebar = () => {
   $('.sidebar').addClass('offscreen')
 }
 
