@@ -45,8 +45,8 @@ let removeTrash = (listItem) => {
 };
 
 let checkName = (key) => {
+  let $target = $('.sidebar #' + key)
   if($('#'+ key +'-name-target')[0].textContent.length > 0) {
-    let $target = $('.sidebar #' + key)
     addTrash($target)
   } else {
     removeTrash($target)
