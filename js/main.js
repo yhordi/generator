@@ -9,7 +9,7 @@ const keys = [];
 $('.menu-item').on('click', function(e) {
   e.preventDefault();
   $(this).toggleClass('pressed');
-  toggleKey($(this))
+  toggleKey($(this));
 });
 
 const bindGenerate = () => {
@@ -27,8 +27,8 @@ const bindTrashClick = () => {
   $('.fa-trash').on('click', (e) => {
     e.preventDefault();
     const key = $(e.target).siblings('a')[0].dataset.key
-    removeName(key)
-    checkName(key)
+    removeName(key);
+    checkName(key);
   });
 }
 
@@ -37,7 +37,7 @@ const removeName = (key) => {
 }
 
 const addTrash = (listItem) => {
-  listItem.siblings('span').removeClass('hidden')
+  listItem.siblings('span').removeClass('hidden');
 };
 
 const removeTrash = (listItem) => {
@@ -45,11 +45,11 @@ const removeTrash = (listItem) => {
 };
 
 const checkName = (key) => {
-  const $target = $('.sidebar #' + key)
+  const $target = $('.sidebar #' + key);
   if($('#'+ key +'-name-target')[0].textContent.length > 0) {
-    addTrash($target)
+    addTrash($target);
   } else {
-    removeTrash($target)
+    removeTrash($target);
   }
 }
 
@@ -72,8 +72,8 @@ const toggleKey = ($this) => {
 }
 
 const getKeys = (parent) => {
-  const keys = []
-  const $links = $(parent)
+  const keys = [];
+  const $links = $(parent);
   $.each($links, (index, link) => {
     if($(link).attr('data-toggle') == 'true'){
       keys.push(link.dataset["key"]);
@@ -84,7 +84,7 @@ const getKeys = (parent) => {
 
 const sidebarClick = () => {
   if($('.offscreen').length == 0) {
-    $('.content').unbind()
+    $('.content').unbind();
   } else {
     // $('#generate').unbind()
   }
@@ -95,16 +95,16 @@ const hideSidebar = () => {
 }
 
 const toggleSidebar = () => {
-  sidebarClick()
-  $('.sidebar').toggleClass('offscreen')
-  toggleIcon()
+  sidebarClick();
+  $('.sidebar').toggleClass('offscreen');
+  toggleIcon();
 };
 
 const toggleIcon = () => {
-  $('#tab').toggleClass('fa-close')
-  $('#tab').toggleClass('fa-bars')
+  $('#tab').toggleClass('fa-close');
+  $('#tab').toggleClass('fa-bars');
 }
 
-bindGenerate()
-bindTrashClick()
-$('#first').click()
+bindGenerate();
+bindTrashClick();
+$('#first').click();
