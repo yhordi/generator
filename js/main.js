@@ -23,6 +23,19 @@ let bindGenerate = () => {
   });
 }
 
+let bindTrashClick = () => {
+  $('.fa-trash').on('click', (e) => {
+    e.preventDefault();
+    let key = $(e.target).siblings('a')[0].dataset.key
+    removeName(key)
+    checkName(key)
+  });
+}
+
+let removeName = (key) => {
+  $('#'+ key +'-name-target').html('');
+}
+
 let addTrash = (listItem) => {
   listItem.siblings('span').removeClass('hidden')
 };
@@ -93,4 +106,5 @@ let toggleIcon = () => {
 }
 
 bindGenerate()
+bindTrashClick()
 $('#first').click()
