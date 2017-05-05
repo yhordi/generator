@@ -1,10 +1,10 @@
 import { generateName } from './generator'
 
-let $firstName = $('#first-name');
-let $epic = $('#epic-name');
-let $nick = $('#nickname');
-let $tab = $('#tab');
-let keys = [];
+const $firstName = $('#first-name');
+const $epic = $('#epic-name');
+const $nick = $('#nickname');
+const $tab = $('#tab');
+const keys = [];
 
 $('.menu-item').on('click', function(e) {
   e.preventDefault();
@@ -12,7 +12,7 @@ $('.menu-item').on('click', function(e) {
   toggleKey($(this))
 });
 
-let bindGenerate = () => {
+const bindGenerate = () => {
   $('#generate').on('click', (e) => {
     e.preventDefault();
     getKeys('.menu .item-container a').forEach((key) => {
@@ -23,29 +23,29 @@ let bindGenerate = () => {
   });
 }
 
-let bindTrashClick = () => {
+const bindTrashClick = () => {
   $('.fa-trash').on('click', (e) => {
     e.preventDefault();
-    let key = $(e.target).siblings('a')[0].dataset.key
+    const key = $(e.target).siblings('a')[0].dataset.key
     removeName(key)
     checkName(key)
   });
 }
 
-let removeName = (key) => {
+const removeName = (key) => {
   $('#'+ key +'-name-target').html('');
 }
 
-let addTrash = (listItem) => {
+const addTrash = (listItem) => {
   listItem.siblings('span').removeClass('hidden')
 };
 
-let removeTrash = (listItem) => {
+const removeTrash = (listItem) => {
   listItem.siblings('span').addClass('hidden')
 };
 
-let checkName = (key) => {
-  let $target = $('.sidebar #' + key)
+const checkName = (key) => {
+  const $target = $('.sidebar #' + key)
   if($('#'+ key +'-name-target')[0].textContent.length > 0) {
     addTrash($target)
   } else {
@@ -63,7 +63,7 @@ $('body').on('click', function(e){
   }
 });
 
-let toggleKey = ($this) => {
+const toggleKey = ($this) => {
   if($this.attr('data-toggle') == 'true') {
     $this.removeAttr('data-toggle');
   } else {
@@ -71,9 +71,9 @@ let toggleKey = ($this) => {
   }
 }
 
-let getKeys = (parent) => {
-  let keys = []
-  let $links = $(parent)
+const getKeys = (parent) => {
+  const keys = []
+  const $links = $(parent)
   $.each($links, (index, link) => {
     if($(link).attr('data-toggle') == 'true'){
       keys.push(link.dataset["key"]);
@@ -82,7 +82,7 @@ let getKeys = (parent) => {
   return keys;
 }
 
-let sidebarClick = () => {
+const sidebarClick = () => {
   if($('.offscreen').length == 0) {
     $('.content').unbind()
   } else {
@@ -94,13 +94,13 @@ const hideSidebar = () => {
   $('.sidebar').addClass('offscreen')
 }
 
-let toggleSidebar = () => {
+const toggleSidebar = () => {
   sidebarClick()
   $('.sidebar').toggleClass('offscreen')
   toggleIcon()
 };
 
-let toggleIcon = () => {
+const toggleIcon = () => {
   $('#tab').toggleClass('fa-close')
   $('#tab').toggleClass('fa-bars')
 }
