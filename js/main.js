@@ -84,9 +84,9 @@ const getKeys = (parent) => {
 
 const sidebarClick = () => {
   if($('.offscreen').length == 0) {
-    $('.content').unbind();
+    $('#generate').removeAttr('disabled')
   } else {
-    // $('#generate').unbind()
+    $('#generate').prop('disabled', 'true')
   }
 };
 
